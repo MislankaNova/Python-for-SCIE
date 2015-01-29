@@ -1,0 +1,287 @@
+#   Python Course in Preparation for A-Level Computing #
+*for computing students who wishes to learn some programming skill fast*
+
+*please notice that this tutorial talks about python 2, rather than python 3*
+
+##  General Advice
+
+1. If you find it hard to understand something, try to write some code by yourself and see how your program will work.
+2. Try to write simple programs for yourself, by doing so you are receiving precious programming experience.
+3. When you encounter any problem or don't know how to do a certain thing, look for solution online, there are plenty of resources, experiences, tutorials and even codes on your disposal.
+
+##  Introduction to Python ##
+### Get Python ###
+
+If you are using OS X, your system should have Python already.
+
+If you are using Windows, go to [www.python.org](https://www.python.org/) and download Python 2. Simply install the package and you will have Python running on your computer.
+
+### Basic Concepts of Python ###
+Python is an interpreted language, this means that when a python program is ran, lines of code are executed one by one. For example, say you have the following code:
+    
+    print 'Hello.'
+    print 'Nice to meet you.'
+    print 'Python.'
+
+
+It's obvious that first you will see 'Hello.', then 'Nice to see you.' and after that 'Python.', like this:
+
+> Hello.
+> 
+> Nice to meet you.
+> 
+> Python.
+
+Each line in the program is called a **statement**, a statement is an instruction given to the computer to let it perform some action. In the previous example, the statement 'print 'Hello.'' makes the computer print out 'Hello.'. 
+
+*Remember the use of 'print', as we will be using it throughout the learning of Python.*
+
+There are two cases where a line is not executed. If your code contains an error, the program will not be able to execute the statement with such an error and quit.
+
+    print 'Hello.'
+    primt 'Nice to meet you.'
+    print 'Python.'
+
+The second line contains a typo. You will only receive 'Hello.', but not 'Nice to meet you.' nor 'Python.'
+
+*If your program is forced to shut because of an error, you will receive a message telling you where the error is.*
+
+Another case is when you have **comment** in your code. A comment is something in the code that is ignored by the computer, whatever in the comment is simply not executed. In python, text after a '#' is a comment and will not be executed. 
+
+    print 'Hello.' # Hello!
+    #print 'Nice to meet you.'
+    print 'Python.' # Python is good
+
+> Hello.
+> 
+> Python.
+
+The second line of code is ignored, the meaningless things at the end of the other two lines are ignored as well.
+
+*When writing your code, pay attention to comments. In your exam you need to use comments to show your examiner the meaning of your code and what your variables stand for. When you are working with others you will need to write good comments as well, otherwise it would be hard for others to understand your code.*
+
+You may know that Python comes with two modes. In the interpreter mode, you may type in a line of code and press enter to have it ran, while you can also write the whole program down first and run all the code at once. In this tutorial we will be only discussing the second way of running Python, since this is what you have to do during your exam and when doing actual works.
+
+### Python 2 vs. Python 3
+
+There are two versions of Python that is currently widely used. The older one is Python 2, while Python 3 is the latest version. Although the general syntax rule is the same, there are some major differences like:
+
+- In Python 2, you write ```print 'hello'```, while in Python 3 you should use ```print('hello')```.
+- ```range``` gives different results in Python 2 and Python 3.
+- ```input``` works in different ways in Python 2 and Python 3. *This is an important difference, there will be a a section in this tutorial talking about ```input``` later.*
+
+In this tutorial, we will only learn Python 2. The reason is that there is a possibility that the examiners may be unfamiliar with the new version of Python. To let the examiners know the version you are using in the exam, please write the following in the beginning of your program code written in the exam:
+
+    # Using Python 2
+
+##  Basic Arithmetic ##
+### ```print``` ###
+
+As we have demonstrated before, you can use 'print' to display a line of text. A common myth is that most programmers start programming by writing the following program, but programmers are intelligent human beings, why not try something unique?
+
+    print 'hello, world'
+
+After executing this, you may see the following on your screen:
+
+> hello, world
+
+As you see, the text you want to display is contained in quotation marks. Text placed in quotation marks in Python is a **string**, which we will discuss very, very soon in...
+
+### Data Types ###
+
+You may have learned the concept of **data types** in CS already. Here we will just talk about some basic data types in Python.
+
+####Integer####
+
+An **integer** is simply a whole number, like ```1```, ```2```, ```42```, ```999```, ```-1024``` and so on. In Python, the following are all integers:
+
+    1
+    2
+    42
+    -1
+
+####Float####
+
+**Float** numbers are basically decimal numbers, numbers that are not whole, like ```3.14```, ```2.54```, ```10.24``` and so on. Here are some examples in Python:
+
+    3.14
+    0.1
+    -0.1
+
+Notice that float numbers are not 100% accurate, due to the way the number is represented. In Python a well-known phenomenon is that 0.1 + 0.1 + 0.1 gives something other than 0.3. This inaccuracy is however not going to affect your program unless you require extreme accuracy.
+
+####String####
+
+A **String** is a section of text, enclosed by a pair of quotation marks. You may have short strings like ```'OK'```, or longer ones like ```'In the world's end they are haunted, killed, degenerated, abandoned, dominated.'```, or digits like ```'12345'```. The following are all valid strings in Python:
+
+    'Hello'
+    "Style of quotation doesn't matter in Python"
+    'A'
+    "3.14159265"
+
+Notice that the last one is not a float, it's a string, since the number is enclosed by quotation marks, making it a string rather than a float. Both double and single quotation marks are accepted, as long as the two quotation marks containing the string match. The following string will not work:
+
+    "A BAD BAD STRING'
+
+####Boolean####
+
+**Boolean** means true or false, there are only two possible values for Boolean, which are...
+
+    True
+    False
+
+### Variables ###
+
+In mathematics people frequently use characters to represent values. You may use x to represent something and y to represent something else. The same can be done in Python. Say you have the following program:
+
+    print 'I love eating Ramen.'
+
+This is perfectly working. But what if we try to represent the string using a letter x?
+
+    x = 'I love eating Ramen.'
+    print x
+
+In the code above, the equation mark **assigns** the value 'I love eating Ramen.' to the variable, x, so x can be used in same ways 'I love eating Ramen.'. Both programs would display the following line:
+
+> I love eating Ramen.
+
+Of course, after assigning a value to a variable, we can change its value later, as demonstrated in the following code:
+
+    number = 3
+    print name
+    number = 4
+    print name
+
+Which will show the following lines on the screen:
+
+> 3
+> 
+> 4
+
+*Please give proper names to variables when you are coding. A variable named ```number_of_people``` is easier for others to understand compared ```nop```.*
+
+Now, you may try to answer this question: when you wish to print the word 'number', why do you have to write ```print 'number'```, putting a pair of quotation marks around the six letters, rather than just writing ```print number```?
+
+The answer would not be hard to figure out after knowing the concept of variables.
+
+When you write ```print number```, the program looks for a variable which is called ```number```, and then tries to ```print``` the value the variable represents. For example, if you have previously put down ```number = 10```, then the number '10' will be printed out. Alternatively, if you have never assigned a value to ```number```, then the program will crash because there is no variable named 'number'.
+
+In contrast, if you write ```print 'number'``` in your code, the program will simply print out the text enclosed by the pair of quotation marks. You may also try things like ```print 100``` or ```print 3.14```, which will simply print out the numbers.
+
+*Keep in mind that name of variables cannot start with a digit.*
+
+### Calculations ###
+
+Calculations can be carried out in Python in a very simple way. You may first try out the following program:
+
+    x = 10
+    y = x + 10
+    sum = x + y
+    print x
+    print y
+    print sum
+
+The outcome would be too easy for us to know:
+
+> 10
+>  
+> 20
+>  
+> 30
+
+Of course, multiplications and divisions can be done easily as well:
+
+    height = 2.5
+    width = 0.5
+    length = 1.2
+    mass = 12
+    volume = height * width * length
+    density = mass / volume
+    print volume
+    print density
+
+The volume and density will then be printed:
+
+> 1.5
+>
+> 8.0
+
+Brackets can be used as well, to allow some calculation to be carried out first.
+
+    test_1 = 90
+    test_2 = 95
+    test_average = (test_1 + test_2) / 2
+    print test_average
+
+The above code gives:
+
+> 92.5
+
+*If you have no idea in what order the calculation will be carried out, feel free to add brackets to clarify the sequence.* 
+
+You can also use ```**``` to give an exponent to a number.
+
+    print 2**10
+
+Gives:
+
+> 1024
+
+*Spaces between numbers and mathematical operators are not necessary, however your program code will be easier to read with these spaces.*
+
+There are two ways to add or subtract the value of a variable:
+
+    number = 100
+    print number
+    number = number + 1
+    print number
+    number += 1
+    print number
+    number = number - 10
+    print number
+    number -= 10
+    print number
+
+Executing the above code gives:
+
+> 100
+>
+> 101
+>
+> 102
+>
+> 92
+>
+> 82
+
+You may also find the reminder of a division using ```%``` and the integer part of the quotient using ```//```.
+
+    print 10 % 3
+    print 10 // 3
+
+The result will be:
+
+> 1
+>
+> 3
+
+### Comparing Numbers ###
+
+In Python, you may also use ```>```, ```<```, and ```==``` to compare two values. Notice that the last one is two equation marks put together (```==```), while a single quotation mark (```=```) is used to assign a value to a variable, which is different.
+
+When you do calculations, you get the result as numbers. However, when you compare two values, you get the result as Boolean values, that is, ```True``` or ```False```. Here we have an example:
+
+    print 1 == 1
+    print 100 > -100
+    print 10 == 20
+    print 0 < -1
+
+You will get:
+
+> True
+>
+> True
+>
+> False
+>
+> False
