@@ -91,7 +91,7 @@ As you see, the text you want to display is contained in quotation marks. Text p
 
 You may have learned the concept of **data types** in CS already. Here we will just talk about some basic data types in Python.
 
-####Integer####
+#### Integer####
 
 An **integer** is simply a whole number, like ```1```, ```2```, ```42```, ```999```, ```-1024``` and so on. In Python, the following are all integers:
 
@@ -100,17 +100,18 @@ An **integer** is simply a whole number, like ```1```, ```2```, ```42```, ```999
     42
     -1
 
-####Float####
+#### Float####
 
-**Float** numbers are basically decimal numbers, numbers that are not whole, like ```3.14```, ```2.54```, ```10.24``` and so on. Here are some examples in Python:
+**Float** numbers are basically numbers with decimal points, like ```3.14```, ```2.54```, ```10.24```, ```2.0``` and so on. Here are some examples in Python:
 
     3.14
     0.1
     -0.1
+    1.0
 
 Notice that float numbers are not 100% accurate, due to the way the number is represented. In Python a well-known phenomenon is that 0.1 + 0.1 + 0.1 gives something other than 0.3. This inaccuracy is however not going to affect your program unless you require extreme accuracy.
 
-####String####
+#### String####
 
 A **String** is a section of text, enclosed by a pair of quotation marks. You may have short strings like ```'OK'```, or longer ones like ```'In the world's end they are haunted, killed, degenerated, abandoned, dominated.'```, or digits like ```'12345'```. The following are all valid strings in Python:
 
@@ -123,7 +124,7 @@ Notice that the last one is not a float, it's a string, since the number is encl
 
     "A BAD BAD STRING'
 
-####Boolean####
+#### Boolean####
 
 **Boolean** means true or false, there are only two possible values for Boolean, which are...
 
@@ -285,3 +286,296 @@ You will get:
 > False
 >
 > False
+
+### A Word on Division ###
+
+Read the following code:
+
+    print 10/3
+    print 8/5
+
+At a first glance, you may except of the following results to be given:
+
+> 3.33333333333
+>
+> 1.6
+
+However, what Python will give you actually is:
+
+> 3
+>
+> 1
+
+You are dividing an integer by another integer that is not a factor of it, in mathematics, you should get a decimal number, however, Python disagrees, why?
+
+Now, try this code below:
+
+    print 10.0 / 3
+    print 8 / 5.0
+
+You will get:
+
+> 3.3333333333333335
+>
+> 1.6
+
+This does make more sense. If you look at the code above, you may notice the difference that there are decimal points added to one of the numbers involved in the division, however, mathematically, the numbers are not different.
+
+So, where is the difference?
+
+The answer is, in Python, numbers like ```10``` and ```8``` are integers, and ```10.0``` and ```8.0``` are floats, which contain decimal points. When you divide an integer by another integer in Python, the outcome would always be an integer as well. If you want to get the mathematically correct outcome, you can change any of the two numbers, or both, into floats, by adding a decimal point. Any calculation involving floats gives outcome as a float, your result will make more sense.
+
+### A Word on Floats ###
+
+You may have noticed that in the previous section, when you do this in Python:
+
+    print 10.0/3
+
+You get this result:
+
+> 3.3333333333333335
+
+Which is not perfectly accurate, as you would except nothing but a series of threes.
+
+Such an error is caused by the nature of float numbers. The way in which a float number is stored in a computer makes it unable to represent a decimal number at 100% accuracy. In Python, you may even have the following:
+
+    print 0.1 + 0.1 + 0.1 == 3
+
+Which gives:
+
+> False
+
+There are ways to overcome this problem, making calculations involving decimal numbers perfectly accurate. However, in most mundane cases, the error is so small that it can be neglected without causing big problems, and you may just use normal floats in your program.
+
+### Operations on Strings ###
+
+In Python, strings can be added together as well, as demonstrated in the following code
+
+    first = 'Pyt'
+    second = 'hon'
+    full = first + second
+    print full
+
+As you would except, you should have this:
+
+> Python
+
+The second string is attached to the end of the first string. Notice that there is no way to 'subtract' something from a string. In the future, we will discuss more ways to manipulate strings using the concept of lists.
+
+Alternatively, you can also do the following:
+
+    first = 'Pyt'
+    second = 'hon'
+    print first, second
+
+Which will give:
+
+> Pyt hon
+
+You may ```print``` out a number of things at the same time just like in the example above. Numbers, Booleans and other things can be printed out in the same manner:
+
+    number1 = 20
+    number2 = 30
+    comapre = number1 > number2
+    print 'Is', number1, 'greater than', number2, '?', compare
+
+You will get this result:
+
+> Is 20 greater than 30 ? False
+
+*Keep in mind that any text enclosed in quotation marks are strings and anything else is not.*
+
+### Inputting Numbers ###
+
+Up until now, we have been giving values to variables in the code. However, in a real program, you may need to let the user to input a value. In Python 2, this can be done using ```input()``` and ```raw_input()```. The following code demonstrate how you can achieve this.
+
+*Notice that this doesn't apply to Python 3!*
+
+    print 'Please type in a number and press Enter.'
+    number = input()
+    squared = number * number
+    print number, 'times', number, 'is', squared
+
+When this program is ran, you will first see only one line displayed:
+
+> Please type in a number and press Enter.
+
+You will then need to write down a number and then press Enter. Say you wan to see 10 squared:
+
+> Please type in a number and press Enter.
+> 
+> 10
+> 
+> 10 times 10 is 100
+
+In the above code, ```input()``` is a function which returns a value. The value given is then assigned to ```number```, that is, ```number``` will now equal whatever number you have inputted.
+
+In this example, if you input 10, what actually happened is:
+
+    number = 10
+
+*Try other numbers and other uses of ```input``` as well.*
+
+### Inputting Strings ###
+
+If you try to use ```input()``` to let the user enter a string.
+
+    name = input()
+    print 'hello', name
+
+Say you are Alice, you may expect this to happen.
+
+> Alice
+>
+> hello Alice
+
+However, what you actually get is an error:
+
+>Alice
+>
+>Traceback (most recent call last):
+>
+>  File "<pyshell#2>", line 1, in <module>
+>  
+>    name = input()
+>    
+>  File "<string>", line 1, in <module>>
+>  
+>NameError: name 'Alice' is not defined
+
+The error is caused by the fact that when you inputted 'Alice', Python tried to look for a variable named ```Alice```, and assign the value of ```Alice``` to ```name```. Since ```Alice``` doesn't  exist, the program runs into an error and crashes.
+
+To overcome this problem, we may use ```raw_input()``` instead of ```input()```. The following is a working example:
+
+    name = raw_input()
+    print 'hello', name
+
+Which will show the following to someone named Alice:
+
+> Alice
+> 
+> hello Alice
+
+What ```raw_input()``` does is that it gives a value that is a string. So, in the example above, you are actually assigning the value ```'Alice'``` to ```name```, which is the same as the following code:
+
+    name = 'Alice'
+
+When you are using ```raw_input()```, even if you input numbers, it will be treated as strings, for example, say you have:
+
+    digits = raw_input()
+
+If you put down 65536, what actually happened is:
+
+    digits = '65536'
+
+But not:
+
+    digits = 65536
+
+*To sum up, when you are asking the user to input a **number**, use ```input()```. If you want them to input a string, use ```raw_input()```.*
+
+### Converting Data Type ###
+
+An intelligent bandit leader is going to share some money he robbed from someone using the following code:
+
+    print 'We are going to decide how are we going to share the money.'
+    print 'Please input the number of people.'
+    number = input()
+    print 'Please input the amount of money.'
+    money = input()
+    each = money / number
+    print 'Each person will receive:', each
+
+Say there are five people and there are 128 RMB, than the following will happen:
+
+> We are going to decide how are we going to share the money.
+> 
+> Please input the number of people.
+> 
+> 5
+> 
+> Please input the amount of money.
+> 
+> 128
+> 
+> Each person will receive: 25
+
+As we had talked about before, in Python, when an integer is divided by an integer, the result will be an integer as well. This is not we want to have. To get a accurate result in decimal, we have to make one of the two numbers a float, so the result will be a float as well.
+
+To turn a integer into a float, we use ```float()``` in the following manner:
+
+    money = input()
+    money = float(money)
+    each = money / number
+
+By using ```float()```, money is turned into a float number, so when carrying out ```each = money / number```, since ```money``` is a float (```128.0``` in this case), the result will be a float as well, the result will be accurate.
+
+> Each person will receive: 25.6
+
+There are different conversions that can be made.
+
+- ```int()``` converts things into integer.
+- ```float()``` converts things into float.
+- ```str()``` converts things into string.
+
+We had learned the way in which we can join two strings:
+
+    string1 = 'str'
+    string2 = 'ing'
+    string3 = string1 + string2
+    print string3
+
+The above example will give:
+
+> string
+
+However, say we want to put one number in the end of the other number:
+
+    number1 = 4
+    number2 = 2
+    number3 = number1 + number2
+    print number3
+
+What we want is '42', but what we will have is obviously:
+
+> 6
+
+What we can do is first turn the numbers into strings, so we will be able to join them like strings:
+
+    number1 = 4
+    number2 = 2
+    number1 = str(number1)
+    number2 = str(number2)
+    number3 = number1 + number2
+    print number3
+
+This time, what actually happened is the same as:
+
+    number3 = '4' + '2'
+
+So we will get what we want:
+
+> 42
+
+We can even first turn integers into strings and than turn the string into integer as well:
+
+    digit1 = 2
+    digit2 = 3
+    print 'The digits are:', digit1, 'and', digit2
+    digit1 = str(digit1)
+    digit2 = str(digit2)
+    number = digit1 + digit2
+    print 'The number is:', number
+    number = int(number)
+    number *= 2
+    print 'The number times two is:', number
+
+You will have:
+
+> The digits are: 2, 3
+> 
+> The number is: 23
+> 
+> The number times two is: 46
+
+*Before proceeding to the next chapter, it's strongly suggested that you try to produce a program of your own using the knowledge we have discussed in this chapter.*
