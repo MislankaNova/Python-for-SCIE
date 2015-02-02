@@ -9,5 +9,6 @@ A easy Python tutorial for those taking CIE computing examination.
 Started 29 Jan 2015
 
 - 2 Feb 2015: Finished 'Basic Arithmetic'
+- Evening 2 Feb 2015: Finished sections on ```if```
 
 Last updated 2 Feb 2015
