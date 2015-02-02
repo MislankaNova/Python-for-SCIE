@@ -268,7 +268,7 @@ The result will be:
 
 ### Comparing Numbers ###
 
-In Python, you may also use ```>```, ```<```, and ```==``` to compare two values. Notice that the last one is two equation marks put together (```==```), while a single quotation mark (```=```) is used to assign a value to a variable, which is different.
+In Python, you may also use ```>```, ```<```, and ```==``` to compare two values. Notice that the last one is two equation marks put together (```==```), while a single equivalent mark (```=```) is used to assign a value to a variable, which is different.
 
 When you do calculations, you get the result as numbers. However, when you compare two values, you get the result as Boolean values, that is, ```True``` or ```False```. Here we have an example:
 
@@ -285,6 +285,17 @@ You will get:
 >
 > False
 >
+> False
+
+Another two symbols, ```<=``` and ```>=```, can also be used in a very obvious way.
+
+    print 10 >= 10
+    print 20 <= 10
+
+The code gives:
+
+> True
+> 
 > False
 
 ### A Word on Division ###
@@ -579,3 +590,100 @@ You will have:
 > The number times two is: 46
 
 *Before proceeding to the next chapter, it's strongly suggested that you try to produce a program of your own using the knowledge we have discussed in this chapter.*
+
+##  Flow Control ##
+
+### ```if``` ###
+
+Say you are a teacher, who are using a Python program to produce end of semester reports for your students. With all the skills we had learned, we will not face much difficulty when writing:
+
+    print 'Input student name'
+    name = raw_input()
+    print 'Input student score.'
+    score = input()
+    print 'The score of', name, 'is', score
+
+This program will work fairly well. However, our ambitious teacher is not yet satisfied. He wants the program to tell if the students passed the exam or not. To achieve such a goal, we are now introducing **selection**, which is done using ```if``` in Python.
+
+    score = input()
+    if score >= 60:
+        print 'PASSED'
+        print 'Congratulations!'
+    print 'Now carrying on to the next student.'
+
+Here we are introducing to a lot of new stuff. Don't panic, here is a full explanation of what just happened.
+
+```score = input()``` is fairly simple, we are now assigning a value to a variable named 'score'.
+
+```if score >= 60:``` is where the selection takes place, please notice the column at the end of this line, which is necessary. In the previous chapter, we have talked about ways to compare numbers, here we are using these methods. In this case, if ```score``` is greater than or equal to ```60```, what will happen is...
+
+        print 'PASSED'
+        print 'Congratulations!'
+
+These two lines may look like any other cases in which we use ```print```, however, there is one important difference. Please pay attention to the extra space before ```print```.
+
+In programming, any space put in the beginning of a line is called **indentation**, which is especially important in Python. Indentation in Python determines whether a line of code is within a block of code or not. One level of indentation in Python should be four spaces wide.
+
+In our example, the two lines belong to the same block of codes which are only going to be executed if ```score``` is greater than or equal to ```60```. That is, if ```socre``` is greater than or equal to 60, you will see the program say 'PASSED' and 'Congratulations!', and then 'Now carrying on to the next student.'.
+
+However, as you would expect, if ```score``` is less then ```60```, there will be no 'PASSED' nor 'Congratulations!' displayed on the screen. However, you will still see the line 'Now carrying on to the next student.', which does not have those extra spaces at the beginning of its line.
+
+*Try to tell the student that he is lucky when his score is ```60```.*
+
+### ```else``` ###
+
+Now the teacher wishes to tell the student that he didn't pass the exam, using ```else```.
+
+    score = input()
+    if score >= 60:
+        print 'PASSED'
+    else:
+        print 'FAILED'
+    print 'Now carrying on to the next student.'
+
+What will happen is very easy to predict. If the student's ```score``` is no less than ```60```, 'PASSED' will be displayed on the screen. However, if the ```score``` is less than ```60```, 'FAILED' will display instead. You may also notice that, no matter what the score is, 'Now carrying on to the next student.' will always be displayed.
+
+*Don't forget the column (```:```) placed at the end of the second and fourth line, this is compulsory.*
+
+### ```elif``` ###
+
+Say the teacher wants to let the program tell him the grade of the student, with the score provided, he therefore starts to use ```elif``` in his code:
+
+    score = input()
+    if score >= 80:
+        print 'A'
+    elif score >= 70:
+        print 'B'
+    elif score >= 60:
+        print 'C'
+    else:
+        print 'FAILED'
+    print 'Now carrying on to the next student.'
+
+Like all previous examples, the outcome of this program is quite obvious. The computer will first check to see if ```score``` is greater than or equal to ```80```, if it is, then 'A' will be displayed and 'Now carrying on to the next student.' will be displayed. If ```score``` is less than ```80```, the program than compares it with ```70```, and then ```60``` if ```score``` is less then ```70```. Finally, if ```score``` is less than ```60```, 'FAILED' will be displayed, followed by 'Now carrying on to the next student.'.
+
+You can use as many ```elif```s as you want in your program.
+
+*Again, don't miss the ```:``` at the end of the lines containing ```if```, ```elif```, and ```else```.*
+
+*Please practice your skills by using it. Can you try to write a program that will do more than this?*
+
+### Nested ```if```s ###
+
+Of course, you can place one ```if``` inside another. Say the students had two exams, and only those who failed both exams will fail in this subject. The teacher may write the following code:
+
+    score1 = input()
+    score2 = input()
+    if score1 < 60:
+        if score2 < 60:
+            print 'FAILED'
+        else:
+            print 'PASSED'
+    else:
+        print 'PASSED'
+
+In this example, the program will first check to see if ```score1``` is less than ```60```, if it is, then the student had failed in the first exam. If he had failed in the first exam, the program will then check to see if he failed in the second exam as will. If he failed both, 'FAILED' will be displayed. Otherwise, 'PASSED' will be displayed.
+
+*Please notice the usage of indentations here. How many spaces are there at the beginning of each line?*
+
+*If there are three exams and a student must fail all of them to eventually fail the subject, challenge yourself, write a program that will be suitable for this case.*
