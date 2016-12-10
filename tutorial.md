@@ -216,7 +216,7 @@ Brackets can be used as well, to allow some calculation to be carried out first.
 
 The above code gives:
 
-> 92.5
+> 92
 
 *If you have no idea in what order the calculation will be carried out, feel free to add brackets to clarify the sequence.* 
 
