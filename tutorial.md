@@ -214,9 +214,11 @@ Brackets can be used as well, to allow some calculation to be carried out first.
     test_average = (test_1 + test_2) / 2
     print test_average
 
-The above code gives:
+The above code prints:
 
 > 92
+
+The reason why ```92``` is printed instead of the actual answer ```92.5``` will be explained in next chapter.
 
 *If you have no idea in what order the calculation will be carried out, feel free to add brackets to clarify the sequence.* 
 
