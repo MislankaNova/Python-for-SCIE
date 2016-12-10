@@ -352,7 +352,7 @@ Which is not perfectly accurate, as you would except nothing but a series of thr
 
 Such an error is caused by the nature of float numbers. The way in which a float number is stored in a computer makes it unable to represent a decimal number at 100% accuracy. In Python, you may even have the following:
 
-    print 0.1 + 0.1 + 0.1 == 3
+    print 0.1 + 0.1 + 0.1 == 0.3
 
 Which gives:
 
