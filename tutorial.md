@@ -149,9 +149,9 @@ In the code above, the equation mark **assigns** the value 'I love eating Ramen.
 Of course, after assigning a value to a variable, we can change its value later, as demonstrated in the following code:
 
     number = 3
-    print name
+    print number
     number = 4
-    print name
+    print number
 
 Which will show the following lines on the screen:
 
