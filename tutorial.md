@@ -628,7 +628,7 @@ In programming, any space put in the beginning of a line is called **indentation
 
 In our example, the two lines belong to the same block of codes which are only going to be executed if ```score``` is greater than or equal to ```60```. That is, if ```socre``` is greater than or equal to 60, you will see the program say 'PASSED' and 'Congratulations!', and then 'Now carrying on to the next student.'.
 
-However, as you would expect, if ```score``` is less then ```60```, there will be no 'PASSED' nor 'Congratulations!' displayed on the screen. However, you will still see the line 'Now carrying on to the next student.', which does not have those extra spaces at the beginning of its line.
+However, as you would expect, if ```score``` is less than ```60```, there will be no 'PASSED' nor 'Congratulations!' displayed on the screen. However, you will still see the line 'Now carrying on to the next student.', which does not have those extra spaces at the beginning of its line.
 
 *Try to tell the student that he is lucky when his score is ```60```.*
 
