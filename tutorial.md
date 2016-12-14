@@ -149,9 +149,9 @@ In the code above, the equation mark **assigns** the value 'I love eating Ramen.
 Of course, after assigning a value to a variable, we can change its value later, as demonstrated in the following code:
 
     number = 3
-    print name
+    print number
     number = 4
-    print name
+    print number
 
 Which will show the following lines on the screen:
 
@@ -214,9 +214,11 @@ Brackets can be used as well, to allow some calculation to be carried out first.
     test_average = (test_1 + test_2) / 2
     print test_average
 
-The above code gives:
+The above code prints:
 
-> 92.5
+> 92
+
+The reason why ```92``` is printed instead of the actual answer ```92.5``` will be explained in next chapter.
 
 *If you have no idea in what order the calculation will be carried out, feel free to add brackets to clarify the sequence.* 
 
@@ -350,7 +352,7 @@ Which is not perfectly accurate, as you would except nothing but a series of thr
 
 Such an error is caused by the nature of float numbers. The way in which a float number is stored in a computer makes it unable to represent a decimal number at 100% accuracy. In Python, you may even have the following:
 
-    print 0.1 + 0.1 + 0.1 == 3
+    print 0.1 + 0.1 + 0.1 == 0.3
 
 Which gives:
 
@@ -626,7 +628,7 @@ In programming, any space put in the beginning of a line is called **indentation
 
 In our example, the two lines belong to the same block of codes which are only going to be executed if ```score``` is greater than or equal to ```60```. That is, if ```socre``` is greater than or equal to 60, you will see the program say 'PASSED' and 'Congratulations!', and then 'Now carrying on to the next student.'.
 
-However, as you would expect, if ```score``` is less then ```60```, there will be no 'PASSED' nor 'Congratulations!' displayed on the screen. However, you will still see the line 'Now carrying on to the next student.', which does not have those extra spaces at the beginning of its line.
+However, as you would expect, if ```score``` is less than ```60```, there will be no 'PASSED' nor 'Congratulations!' displayed on the screen. However, you will still see the line 'Now carrying on to the next student.', which does not have those extra spaces at the beginning of its line.
 
 *Try to tell the student that he is lucky when his score is ```60```.*
 
